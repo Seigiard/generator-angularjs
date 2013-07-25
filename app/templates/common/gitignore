@@ -1,0 +1,14 @@
+# Node modules folder.
+node_modules/
+
+# Temporary development folder.
+<%= projectFolders.devFolder %>/
+
+# Build folder.
+<%= projectFolders.distFolder %>/
+
+# Bower components folder.
+<%= projectFolders.srcFolder %>/<%= assetsFolders.bowerFolder %>/
+
+<% if (engines.compass) { %># Compass temporary folder.
+.sass-cache/ <% } %>

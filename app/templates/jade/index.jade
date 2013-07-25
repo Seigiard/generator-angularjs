@@ -1,0 +1,30 @@
+doctype 5
+html(lang='en', ng-app='<%= _.camelize(appname) %>')
+
+  head
+    meta(charset='utf-8')
+    title <%= appname %>
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    // build:css <%= assetsFolders.stylesFolder %>/screen.min.css
+    link(rel='stylesheet', href='<%= assetsFolders.stylesFolder %>/screen.css')
+    // endbuild
+
+  body
+    em(ng-show='showLoader') Loading...
+    ng-view(ng-hide='showLoader')
+
+    // build:js <%= assetsFolders.scriptsFolder %>/app.min.js
+    // Third parties.
+    script(src='<%= assetsFolders.bowerFolder %>/angular-unstable/angular.min.js')<% if (angularModules.resource) { %>
+    script(src='<%= assetsFolders.bowerFolder %>/angular-resource/angular-resource.min.js')<% if (angularModules.restangular) { %>
+    script(src='<%= assetsFolders.bowerFolder %>/restangular/dist/restangular.min.js')
+    script(src='<%= assetsFolders.bowerFolder %>/lodash/dist/lodash.min.js')<% } } %>
+    // App Core.
+    script(src='<%= assetsFolders.scriptsFolder %>/app.js')
+    script(src='<%= assetsFolders.scriptsFolder %>/templates.js')
+    // Services.
+    // Controllers.
+    // Directives.
+    // Filters.
+    // endbuild

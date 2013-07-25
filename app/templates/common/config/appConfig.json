@@ -1,0 +1,25 @@
+{
+  "app": {
+    "ngModule" : "<%= _.camelize(appname) %>",
+
+    "dev"  : "<%= projectFolders.devFolder %>",
+    "dist" : "<%= projectFolders.distFolder %>",
+    "src"  : "<%= projectFolders.srcFolder %>",
+    "test" : "<%= projectFolders.testFolder %>",
+
+    "assets": {
+      "bower"     : "<%= assetsFolders.bowerFolder %>",
+      "fonts"     : "<%= assetsFolders.fontsFolder %>",
+      "images"    : "<%= assetsFolders.imagesFolder %>",
+      "scripts"   : "<%= assetsFolders.scriptsFolder %>",
+      "styles"    : "<%= assetsFolders.stylesFolder %>",
+      "templates" : "<%= assetsFolders.templatesFolder %>"
+    },
+
+    "engines": {
+      "coffeeScript" : <%= engines.coffeeScript %>,
+      "compass"      : <%= engines.compass %>,
+      "jade"         : <%= engines.jade %>
+    }
+  }
+}
