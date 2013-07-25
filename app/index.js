@@ -216,8 +216,8 @@ AngularjsGenerator.prototype.app = function app() {
 
   // Configuration files.
   this.mkdir('config');
-  this.template('common/config/appConfig.json', 'config/appConfig.json');
-  this.copy('common/config/jshintrc', 'config/.jshintrc');
+  this.template('../../templates/common/config/appConfig.json', 'config/appConfig.json');
+  this.copy('../../templates/common/config/jshintrc', 'config/.jshintrc');
 
   // Create assets folders.
   for (var f in this.assetsFolders) {
@@ -225,17 +225,17 @@ AngularjsGenerator.prototype.app = function app() {
   };
 
   // Project description files.
-  this.copy('common/editorconfig', '.editorconfig');
-  this.copy('common/gitattributes', '.gitattributes');
-  this.copy('common/travis.yml', '.travis.yml');
-  this.template('common/gitignore', '.gitignore');
-  this.template('common/README.md', 'README.md');
+  this.copy('../../templates/common/editorconfig', '.editorconfig');
+  this.copy('../../templates/common/gitattributes', '.gitattributes');
+  this.copy('../../templates/common/travis.yml', '.travis.yml');
+  this.template('../../templates/common/gitignore', '.gitignore');
+  this.template('../../templates/common/README.md', 'README.md');
 
   // Package files.
-  this.template('common/_package.json', 'package.json');
-  this.template('common/_bower.json', 'bower.json');
-  this.template('common/bowerrc', '.bowerrc');
-  this.template('common/Gruntfile.js', 'Gruntfile.js');
+  this.template('../../templates/common/_package.json', 'package.json');
+  this.template('../../templates/common/_bower.json', 'bower.json');
+  this.template('../../templates/common/bowerrc', '.bowerrc');
+  this.template('../../templates/common/Gruntfile.js', 'Gruntfile.js');
 
   // App files.
   var views = this.engines.jade ? 'jade' : 'html';
@@ -243,16 +243,16 @@ AngularjsGenerator.prototype.app = function app() {
   var styles = this.engines.compass ? 'scss' : 'css';
 
   // index.{jade, html} file.
-  this.template(views + '/index.' + views, this.projectFolders.srcFolder + '/index.' + views);
+  this.template('../../templates/' + views + '/index.' + views, this.projectFolders.srcFolder + '/index.' + views);
 
   // app.{coffee, js} file.
-  this.template(scripts + '/app.' + scripts, this.projectFolders.srcFolder + '/' + this.assetsFolders.scriptsFolder + '/app.' + scripts);
+  this.template('../../templates/' + scripts + '/app.' + scripts, this.projectFolders.srcFolder + '/' + this.assetsFolders.scriptsFolder + '/app.' + scripts);
 
   // templates.{coffee, js} file.
-  this.template(scripts + '/templates.' + scripts, this.projectFolders.srcFolder + '/' + this.assetsFolders.scriptsFolder + '/templates.' + scripts);
+  this.template('../../templates/' + scripts + '/templates.' + scripts, this.projectFolders.srcFolder + '/' + this.assetsFolders.scriptsFolder + '/templates.' + scripts);
 
   // screen.{scss, css} file.
-  this.template(styles + '/screen.' + styles, this.projectFolders.srcFolder + '/' + this.assetsFolders.stylesFolder + '/screen.' + styles);
+  this.template('../../templates/' + styles + '/screen.' + styles, this.projectFolders.srcFolder + '/' + this.assetsFolders.stylesFolder + '/screen.' + styles);
 
-  this.copy('common/favicon.ico', this.projectFolders.srcFolder + '/favicon.ico');
+  this.copy('../../templates/common/favicon.ico', this.projectFolders.srcFolder + '/favicon.ico');
 };
