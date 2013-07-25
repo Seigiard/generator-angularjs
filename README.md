@@ -13,6 +13,8 @@ A generator for Yeoman.
 ## Generators
 * [angularjs](#app)
 * [angularjs:controller](#controller)
+* [angularjs:view](#view)
+* [angularjs:route](#route)
 
 ### App
 Scaffolds a new AngularJS application, you will be prompted for some configuration params such as folder names, engines (CoffeeScript, Compass, Jade) and ngModules (angular-resource, restangular).
@@ -33,6 +35,22 @@ Generates a new controller in `app/scripts/controllers/`. And adds it to your in
 ```bash
 yo angularjs:controller awesome
 ```
+
+### View
+Generates a new view in `app/templates/views/`.
+
+```bash
+yo angularjs:view awesomeView
+```
+
+### Route
+Hooks for `angularjs:controller` and `angularjs:view` and add the new view to your `app.coffee` or `app.js`.
+
+```bash
+yo angularjs:route awesome
+```
+
+__Note: if your route name is "main", the route will be `.when('/', {})`.
 
 ## Application configuration.
 One of the features that makes this generator different than others, is the implementation of `config/appConfig.json` file.

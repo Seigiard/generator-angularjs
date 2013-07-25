@@ -14,6 +14,9 @@ var AngularjsGenerator = module.exports = function AngularjsGenerator(args, opti
   this.argument('appname', { type: String, required: false });
   this.appname = this.appname || path.basename(process.cwd());
 
+  // Call route sub-generator.
+  this.hookFor('angularjs:route', { args: [ 'main' ] });
+
   this.on('end', function () {
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
