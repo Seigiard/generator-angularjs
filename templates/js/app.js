@@ -32,11 +32,6 @@ angular.module('<%= _.camelize(appname) %>', [
     // Application routes.
     $routeProvider
 
-      .when('/', {
-        controller  : 'MainCtrl',
-        templateUrl : '<%= assetsFolders.templatesFolder %>/views/main.html'
-      })
-
       .otherwise({
         redirectTo : '/'
       })
