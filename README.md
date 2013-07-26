@@ -15,6 +15,7 @@ A generator for Yeoman.
 * [angularjs:controller](#controller)
 * [angularjs:view](#view)
 * [angularjs:route](#route)
+* [angularjs:service](#service)
 
 ### App
 Scaffolds a new AngularJS application, you will be prompted for some configuration params such as folder names, engines (CoffeeScript, Compass, Jade) and ngModules (angular-resource, restangular).
@@ -51,6 +52,13 @@ yo angularjs:route awesome
 ```
 
 _Note: if your route name is "main", the route will be `.when('/', {})`._
+
+### Service
+This is a more interactive generator, when you fire it, it will prompt you which kind of service did you want to create (service, factory, provider, value or constant).
+
+```bash
+yo angularjs:service awesome
+```
 
 ## Application configuration.
 One of the features that makes this generator different than others, is the implementation of `config/appConfig.json` file.
