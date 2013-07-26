@@ -15,6 +15,7 @@ A generator for Yeoman.
 * [angularjs:controller](#controller)
 * [angularjs:view](#view)
 * [angularjs:route](#route)
+* [angularjs:filter](#filter)
 * [angularjs:service](#service)
 
 ### App
@@ -52,6 +53,13 @@ yo angularjs:route awesome
 ```
 
 _Note: if your route name is "main", the route will be `.when('/', {})`._
+
+### Filter
+Creates a new filter.
+
+```bash
+yo angularjs:filter reverse
+```
 
 ### Service
 This is a more interactive generator, when you fire it, it will prompt you which kind of service did you want to create (service, factory, provider, value or constant).
