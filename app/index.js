@@ -26,6 +26,53 @@ var AngularjsGenerator = module.exports = function AngularjsGenerator(args, opti
 
 util.inherits(AngularjsGenerator, yeoman.generators.Base);
 
+// Ask for pre-processors.
+AngularjsGenerator.prototype.askForPreprocessors = function askForPreprocessors() {
+  var cb = this.async();
+
+  // Prompts list.
+  var prompts = [
+    {
+      type    : 'checkbox',
+      name    : 'engines',
+      message : 'Which pre-processors would you like to use in your project?',
+      choices : [
+        {
+          value   : 'coffeeScript',
+          name    : 'CoffeeScript.',
+          checked : true
+        },
+        {
+          value   : 'compass',
+          name    : 'Sass (with Compass).',
+          checked : true
+        },
+        {
+          value   : 'jade',
+          name    : 'Jade.',
+          checked : true
+        }
+      ]
+    }
+  ];
+
+  // Instructions.
+  console.log('\n\n1- Let\'s talk in pre-processors terms...\n');
+
+  // Launch prompts.
+  this.prompt(prompts, function (props) {
+
+    // Store engines on "this" scope.
+    this.engines = {
+      coffeeScript : props.engines.indexOf('coffeeScript') >= 0,
+      compass      : props.engines.indexOf('compass') >= 0,
+      jade         : props.engines.indexOf('jade') >= 0
+    };
+
+    cb();
+  }.bind(this));
+};
+
 // Ask for project folders.
 AngularjsGenerator.prototype.askForProjectFolders = function askForProjectFolders() {
   var cb = this.async();
@@ -55,7 +102,7 @@ AngularjsGenerator.prototype.askForProjectFolders = function askForProjectFolder
   ];
 
   // Instructions.
-  console.log('\n1- Tell me about your project base directories...\n');
+  console.log('\n2- Tell me about your project base directories...\n');
 
   // Launch prompts.
   this.prompt(prompts, function (props) {
@@ -110,7 +157,7 @@ AngularjsGenerator.prototype.askForAssetsFolders = function askForAssetsFolders(
   ];
 
   // Instructions.
-  console.log('\n\n2- Now, let\'s populate your app source folder with some sub folders for assets...\n');
+  console.log('\n\n3- Now, let\'s populate your app source folder with some sub folders for assets...\n');
 
   // Launch prompts.
   this.prompt(prompts, function (props) {
@@ -150,7 +197,7 @@ AngularjsGenerator.prototype.askForAngularModules = function askForAngularModule
   ];
 
   // Instructions.
-  console.log('\n\n3- Let\'s figure out which AngularJS modules did you like to include...\n');
+  console.log('\n\n4- Let\'s figure out which AngularJS modules did you like to include...\n');
 
   // Launch prompts.
   this.prompt(prompts, function (props) {
@@ -160,49 +207,6 @@ AngularjsGenerator.prototype.askForAngularModules = function askForAngularModule
 
     for (var f in props) {
       this.angularModules[f] = props[f];
-    }
-
-    cb();
-  }.bind(this));
-};
-
-// Ask for pre-processors.
-AngularjsGenerator.prototype.askForPreprocessors = function askForPreprocessors() {
-  var cb = this.async();
-
-  // Prompts list.
-  var prompts = [
-    {
-      type    : 'confirm',
-      name    : 'coffeeScript',
-      message : 'Would you like to use CoffeeScript in your project?',
-      default : true
-    },
-    {
-      type    : 'confirm',
-      name    : 'compass',
-      message : 'Would you like to style your project with Compass?',
-      default : true
-    },
-    {
-      type    : 'confirm',
-      name    : 'jade',
-      message : 'Would you like to pre-process your HTML with Jade?',
-      default : false
-    }
-  ];
-
-  // Instructions.
-  console.log('\n\n4- Finally, let\'s talk in pre-processors terms...\n');
-
-  // Launch prompts.
-  this.prompt(prompts, function (props) {
-
-    // Store engines on "this" scope.
-    this.engines = {};
-
-    for (var f in props) {
-      this.engines[f] = props[f];
     }
 
     cb();
