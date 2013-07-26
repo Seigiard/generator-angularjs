@@ -300,7 +300,8 @@ module.exports = function (grunt) {
         task    = 'coffee:test'
         break;<% } if (engines.compass) { %>
       case 'compass':
-        cleaner = 'clean:styles'<% } if (engines.jade) { %>
+        cleaner = 'clean:styles'
+        break;<% } if (engines.jade) { %>
       case 'jade':
         cleaner = 'clean:html'
         break;<% } %>
