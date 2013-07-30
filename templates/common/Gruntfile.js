@@ -173,8 +173,7 @@ module.exports = function (grunt) {
         compileDebug : false,
         pretty       : true
       }
-    },
-    <% } %>
+    },<% } %>
 
     // Run unit tests.
     karma: {
@@ -255,7 +254,6 @@ module.exports = function (grunt) {
         tasks : 'compile:coffeeTest'
       }
     },
-
 
     // Use minified assets on HTML files depending on environment.
     usemin: {
